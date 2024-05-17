@@ -150,6 +150,8 @@
 //                 // Save disease
 //                 _hiveService.addDisease(_disease);
 
+// ignore_for_file: unnecessary_import
+
 //                 Navigator.restorablePushNamed(
 //                   context,
 //                   Suggestions.routeName,
@@ -176,7 +178,6 @@
 //   }
 // }
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:app/config/themes/theme.dart';
 import 'package:app/services/disease_provider.dart';
 import 'package:app/src/home_page/models/disease_model.dart';
@@ -192,7 +193,6 @@ import 'package:app/pages/accountPage.dart';
 import 'package:app/pages/plantPage.dart';
 import 'package:app/src/home_page/components/greeting.dart';
 import 'package:app/src/home_page/components/history.dart';
-// ignore: unnecessary_import
 import 'package:flutter/widgets.dart';
 import 'package:app/src/home_page/components/titlesection.dart';
 
@@ -215,8 +215,8 @@ class MyApp extends StatelessWidget {
             darkTheme: AppTheme.darkTheme,
             initialRoute: '/',
             routes: {
-              // Trang chính là HomePage
-              '/plant': (context) => PlantPage(), // Trang PlantPage
+              '/camera': (context) => CameraPage(),
+              '/plant': (context) => PlantPage(),
               '/account': (context) => AccountPage(),
 
               Suggestions.routeName: (context) =>
@@ -257,10 +257,10 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Iconsax.home),
             label: 'Home',
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Iconsax.home),
-          //   label: 'My Plants',
-          // ),
+          BottomNavigationBarItem(
+            icon: Icon(Iconsax.home),
+            label: 'My Plants',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Iconsax.camera),
             label: 'Camera',
@@ -307,10 +307,16 @@ class CameraPage extends StatelessWidget {
                 _confidence = value[0]['confidence'];
               });
               if (_confidence > 0.8) {
+                // Set disease for Disease Service
                 _diseaseService.setDiseaseValue(_disease);
+
+                // Save disease
                 _hiveService.addDisease(_disease);
 
-                Navigator.pushNamed(context, Suggestions.routeName);
+                Navigator.restorablePushNamed(
+                  context,
+                  Suggestions.routeName,
+                );
               }
             },
           ),
@@ -333,10 +339,16 @@ class CameraPage extends StatelessWidget {
               });
 
               if (_confidence > 0.8) {
+                // Set disease for Disease Service
                 _diseaseService.setDiseaseValue(_disease);
+
+                // Save disease
                 _hiveService.addDisease(_disease);
 
-                Navigator.pushNamed(context, Suggestions.routeName);
+                Navigator.restorablePushNamed(
+                  context,
+                  Suggestions.routeName,
+                );
               }
             },
           ),

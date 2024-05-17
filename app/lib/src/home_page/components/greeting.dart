@@ -18,7 +18,7 @@ class GreetingSection extends SliverFixedExtentList {
                         width: 25,
                       ),
                       Text(
-                        "Plant Disease Detector",
+                        "Camera",
                         style: TextStyle(fontSize: 30),
                       ),
                     ],

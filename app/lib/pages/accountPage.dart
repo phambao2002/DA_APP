@@ -53,7 +53,7 @@ class _AccountPageState extends State<AccountPage> {
               ),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/images/pfp_1.jpg'),
+                image: AssetImage('assets/images/hoso.jpg'),
               ),
             ),
           ),
