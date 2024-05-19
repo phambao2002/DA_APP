@@ -61,12 +61,12 @@ class _PlantPageState extends State<PlantPage>
     List<PlantView> _plantList = [
       PlantView(
           imageUrl: 'assets/images/anh3.jpg',
-          species: 'Vết đốm trên lá',
+          species: 'Đốm lá',
           condition: 'Bị đốm lá ',
           date: DateTime(2024, 5, 20)),
       PlantView(
           imageUrl: 'assets/images/anh4.jpg',
-          species: 'Cây sầu riêng',
+          species: 'Cầu riêng',
           condition: 'Cháy lá ',
           date: DateTime(2024, 05, 16)),
       PlantView(
@@ -77,7 +77,7 @@ class _PlantPageState extends State<PlantPage>
       PlantView(
           imageUrl: 'assets/images/anh6.jpg',
           species: 'Bắp cải ',
-          condition: 'Nấm Alternaria brassicae ',
+          condition: 'Nấm  ',
           date: DateTime(2024, 05, 14)),
       PlantView(
           imageUrl: 'assets/images/anh7.jpg',
