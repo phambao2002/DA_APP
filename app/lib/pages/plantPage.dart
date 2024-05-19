@@ -11,13 +11,14 @@ class CustomTabBar extends StatelessWidget {
   final Color labelColor;
   final Color unselectedLabelColor;
   final Color indicatorColor;
-
+  final TextStyle tabTextStyle;
   CustomTabBar({
     required this.tabController,
     required this.tabTexts,
     this.labelColor = Colors.black, // Default label color
     this.unselectedLabelColor = Colors.grey, // Default unselected label color
     this.indicatorColor = Colors.blue, // Default indicator color
+    this.tabTextStyle = const TextStyle(fontSize: 30.0),
   });
 
   @override
@@ -96,14 +97,29 @@ class _PlantPageState extends State<PlantPage>
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+            margin: EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(top: 10), // Căn chỉnh lề trên
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 53, 161, 99), // Màu nền của hộp chứa
+              border: Border.all(
+                color:
+                    Color.fromARGB(255, 53, 161, 99), // Màu viền của hộp chứa
+                width: 0.0, // Độ dày viền của hộp chứa
+              ),
+              borderRadius: BorderRadius.circular(8.0), // Bo góc viền, nếu cần
+            ),
+
+            height: 50.0, // Chỉnh kích thước cao của CustomTabBar
             child: CustomTabBar(
               tabController: _tabController,
               tabTexts: ['My Plants', 'History'],
-              labelColor: Colors.green, // Customize label color
-              unselectedLabelColor:
-                  Colors.red, // Customize unselected label color
-              indicatorColor: Colors.blue, // Customize indicator color
+              labelColor:
+                  Color.fromARGB(255, 14, 15, 14), // Màu của nhãn được chọn
+              unselectedLabelColor: Color.fromARGB(
+                  255, 237, 236, 236), // Màu của nhãn không được chọn
+              indicatorColor:
+                  Color.fromARGB(255, 241, 239, 239), // Màu của chỉ báo
+              tabTextStyle: TextStyle(fontSize: 30.0), // Chỉnh kích thước chữ
             ),
           ),
           Expanded(

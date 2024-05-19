@@ -35,6 +35,7 @@ class _AccountPageState extends State<AccountPage> {
     return Container(
       height: 100,
       padding: EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+      margin: EdgeInsets.only(top: 50),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Theme.of(context).backgroundColor,

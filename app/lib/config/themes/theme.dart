@@ -34,7 +34,7 @@ class AppTheme {
               onBackground: Color(0xFF2E3338),
               onError: Color(0xFFE3E5E8),
               brightness: Brightness.light)
-          .copyWith(secondary: Color(0xFF35a163)));
+          .copyWith(secondary: Color.fromARGB(255, 53, 161, 99)));
   static final darkTheme = ThemeData(
       scaffoldBackgroundColor: Color(0xFF202225),
       fontFamily: 'Poppins',
