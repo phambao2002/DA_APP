@@ -51,7 +51,7 @@ class SortMenuBoxState extends DropDownBoxState<SortMenuBox> {
                     blurRadius: 10,
                     color: Theme.of(context).scaffoldBackgroundColor)
               ],
-              color: Theme.of(context).backgroundColor,
+              color: Theme.of(context).colorScheme.background,
               borderRadius: BorderRadius.circular(kDefaultBorderRaduis)),
         ),
         Positioned(

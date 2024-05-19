@@ -38,7 +38,7 @@ class _AccountPageState extends State<AccountPage> {
       margin: EdgeInsets.only(top: 50),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Theme.of(context).backgroundColor,
+        color: Theme.of(context).colorScheme.background,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -103,7 +103,7 @@ class _AccountPageState extends State<AccountPage> {
     return Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(kDefaultBorderRaduis),
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).colorScheme.background,
         ),
         child: Column(
           children: [

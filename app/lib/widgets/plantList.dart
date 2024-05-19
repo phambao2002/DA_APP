@@ -202,7 +202,7 @@ class PlantTile extends StatelessWidget {
               .withOpacity(0.23),
           blurRadius: 6.0,
         ),
-      ], color: Theme.of(context).backgroundColor),
+      ], color: Theme.of(context).colorScheme.background),
     );
   }
 }

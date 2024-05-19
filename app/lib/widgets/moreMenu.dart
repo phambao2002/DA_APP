@@ -38,7 +38,7 @@ class MoreMenuBoxState extends DropDownBoxState<MoreMenuBox> {
                 blurRadius: 10,
                 color: Theme.of(context).scaffoldBackgroundColor)
           ],
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).colorScheme.background,
           borderRadius: BorderRadius.circular(kDefaultBorderRaduis)),
     );
   }
@@ -73,7 +73,7 @@ class MoreItem extends StatelessWidget {
                       this.text,
                       style: TextStyle(
                         color: this.red
-                            ? Theme.of(context).errorColor
+                            ? Theme.of(context).colorScheme.error
                             : Theme.of(context).colorScheme.onBackground,
                         fontSize: 16,
                       ),

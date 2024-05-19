@@ -18,7 +18,7 @@ class ProfileSettingsPage extends StatelessWidget {
               padding: EdgeInsets.all(kDefaultPadding / 2),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Theme.of(context).backgroundColor,
+                color: Theme.of(context).colorScheme.background,
               ),
               child: Column(
                 children: [

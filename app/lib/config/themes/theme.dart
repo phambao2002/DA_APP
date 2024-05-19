@@ -21,7 +21,6 @@ class AppTheme {
           floatingLabelBehavior: FloatingLabelBehavior.always),
       appBarTheme: AppBarTheme(backgroundColor: Color(0xFF35a163)),
       splashColor: Color(0xFFE8EAED),
-      backgroundColor: Color(0xFFFFFFFF),
       colorScheme: ColorScheme(
               primary: Color(0xFF35a163),
               secondary: Color(0xFFF2F3F5),
@@ -34,7 +33,8 @@ class AppTheme {
               onBackground: Color(0xFF2E3338),
               onError: Color(0xFFE3E5E8),
               brightness: Brightness.light)
-          .copyWith(secondary: Color.fromARGB(255, 53, 161, 99)));
+          .copyWith(secondary: Color.fromARGB(255, 53, 161, 99))
+          .copyWith(background: Color(0xFFFFFFFF)));
   static final darkTheme = ThemeData(
       scaffoldBackgroundColor: Color(0xFF202225),
       fontFamily: 'Poppins',
@@ -45,7 +45,6 @@ class AppTheme {
           floatingLabelBehavior: FloatingLabelBehavior.always),
       appBarTheme: AppBarTheme(backgroundColor: Color(0xFF35a163)),
       splashColor: Color(0xFF34373C),
-      backgroundColor: Color(0xFF36393F),
       colorScheme: ColorScheme(
               primary: Color(0xFF35a163),
               secondary: Color(0xFF2F3136),
@@ -58,5 +57,6 @@ class AppTheme {
               onBackground: Color(0xFFF8F5F9),
               onError: Color(0xFF202225),
               brightness: Brightness.dark)
-          .copyWith(secondary: Color(0xFF35a163)));
+          .copyWith(secondary: Color(0xFF35a163))
+          .copyWith(background: Color(0xFF36393F)));
 }

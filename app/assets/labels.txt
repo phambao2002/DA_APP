@@ -1,0 +1,2 @@
+0 Tomato_Late_blight
+1 Tomato__Target_Spot

@@ -59,7 +59,7 @@ class _MenuItemCategoryState extends State<MenuItemCategory>
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(kDefaultBorderRaduis),
-            color: Theme.of(context).backgroundColor,
+            color: Theme.of(context).colorScheme.background,
           ),
           child: Material(
             color: Colors.transparent,

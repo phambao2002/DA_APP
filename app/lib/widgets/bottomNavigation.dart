@@ -38,7 +38,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
     return SafeArea(
         child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
-            color: Theme.of(context).backgroundColor,
+            color: Theme.of(context).colorScheme.background,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: widget.tabs
