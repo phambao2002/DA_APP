@@ -7,6 +7,6 @@ export 'package:app/widgets/customTabBar.dart';
 export 'package:app/widgets/sortMenu.dart';
 export 'package:app/widgets/moreMenu.dart';
 export 'package:app/widgets/plantList.dart';
-export 'package:app/widgets/searchBar.dart';
 export 'package:app/widgets/buttons.dart';
 export 'package:app/main.dart';
+export 'package:app/widgets/history.dart';

@@ -2,21 +2,12 @@ import 'package:app/pages/CameraPage.dart';
 import 'package:flutter/material.dart';
 import 'package:app/config/themes/theme.dart';
 import 'package:app/services/disease_provider.dart';
-import 'package:app/src/home_page/models/disease_model.dart';
 import 'package:app/src/suggestions_page/suggestions.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:app/services/classify.dart';
-import 'package:app/services/hive_database.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:app/pages/accountPage.dart';
 import 'package:app/pages/plantPage.dart';
-import 'package:app/src/home_page/components/greeting.dart';
-import 'package:app/src/home_page/components/history.dart';
 import 'package:flutter/widgets.dart';
-import 'package:app/src/home_page/components/titlesection.dart';
 
 class MyApp extends StatelessWidget {
   @override

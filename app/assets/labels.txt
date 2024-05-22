@@ -1,2 +1,13 @@
-0 Tomato_Late_blight
-1 Tomato__Target_Spot
+0 Apple Apple scab
+1 Apple Black rot
+2 Apple Cedar apple rust
+3 Apple healthy
+4 Blueberry healthy
+5 Corn (maize) Cercospora leaf spot Gray leaf spo
+6 Corn (maize) Common rust
+7 Corn (maize) healthy
+8 Corn (maize) Northern Leaf Blight
+9 Cherry (including sour) healthy
+10 Cherry (including sour) Powdery mildew
+11 Grape Black rot
+12 Grape Esca (Black Measles)
