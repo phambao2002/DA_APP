@@ -74,7 +74,7 @@ class _AccountPageState extends State<AccountPage> {
                         fontSize: 12,
                         color: Theme.of(context).secondaryHeaderColor),
                   ),
-                  Text('Saparov Almas',
+                  Text('Phạm Bảo',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold))
                 ],
