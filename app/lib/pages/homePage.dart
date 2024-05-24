@@ -31,9 +31,7 @@ class MyApp extends StatelessWidget {
               '/camera': (context) => CameraPage(),
               '/plant': (context) => PlantPage(),
               '/account': (context) => AccountPage(),
-
-              Suggestions.routeName: (context) =>
-                  const Suggestions(), // Add this route
+              Suggestions.routeName: (context) => const Suggestions(),
             },
           );
         },
@@ -68,19 +66,15 @@ class _HomePageState extends State<HomePage> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Iconsax.home),
-            label: 'Home',
+            label: 'Trang chủ',
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Iconsax.home),
-          //   label: 'My Plants',
-          // ),
           BottomNavigationBarItem(
             icon: Icon(Iconsax.camera),
             label: 'Camera',
           ),
           BottomNavigationBarItem(
             icon: Icon(Iconsax.profile_circle4),
-            label: 'Profile',
+            label: 'Hồ sơ',
           ),
         ],
       ),

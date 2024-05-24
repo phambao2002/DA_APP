@@ -35,7 +35,7 @@ class _AccountPageState extends State<AccountPage> {
     return Container(
       height: 100,
       padding: EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
-      margin: EdgeInsets.only(top: 50),
+      margin: EdgeInsets.symmetric(vertical: 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Theme.of(context).colorScheme.background,
@@ -109,13 +109,13 @@ class _AccountPageState extends State<AccountPage> {
           children: [
             MenuItem(
               prefix: Iconsax.profile_circle4,
-              text: 'Profile',
+              text: 'Hồ sơ ',
             ),
             MenuItemCategory(
               subitems: [
                 SubMenuItem(
                   icon: Iconsax.sun_1,
-                  text: 'Light Mode / Dark mode',
+                  text: 'Chế độ sáng / Chế độ tối',
                   endWidget: ToggleThemeSwitcher(
                       value: themeProvider.isDarkMode,
                       onChanged: (value) {
@@ -128,9 +128,9 @@ class _AccountPageState extends State<AccountPage> {
                 ),
                 SubMenuItem(
                   icon: Iconsax.language_circle,
-                  text: 'Languages',
+                  text: 'Ngôn ngữ',
                   endWidget: Container(
-                    child: Text('English',
+                    child: Text('Vietnam',
                         style: TextStyle(
                           color: Theme.of(context).secondaryHeaderColor,
                           fontSize: 16,
@@ -139,7 +139,7 @@ class _AccountPageState extends State<AccountPage> {
                 ),
               ],
               prefix: Iconsax.setting_2,
-              text: 'General Settings',
+              text: 'Cài đặt chung',
             )
           ],
         ));

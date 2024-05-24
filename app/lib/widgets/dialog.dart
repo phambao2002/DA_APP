@@ -95,16 +95,16 @@ class DeleteDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return DialogWidget(
         title: this.title,
-        text: "You can't undo this action",
+        text: "Bạn không thể hoàn tác hành động này",
         child: Row(
           children: [
             Expanded(
                 child: SecondaryButton(
-                    text: "Cancel", onPressed: () => Navigator.pop(context))),
+                    text: "Thoát", onPressed: () => Navigator.pop(context))),
             DividerWidget(),
             Expanded(
               child: SecondaryButton(
-                text: 'Delete',
+                text: 'Xóa',
                 color: Theme.of(context).colorScheme.error,
                 onPressed: () {
                   this.onPressed();

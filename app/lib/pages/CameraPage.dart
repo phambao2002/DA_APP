@@ -200,7 +200,7 @@ class _CameraPageState extends State<CameraPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter TFlite'),
+        title: Text('Xác nhận bệnh của cây'),
         backgroundColor: Colors.green,
       ),
       body: Center(
