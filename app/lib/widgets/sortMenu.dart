@@ -62,7 +62,7 @@ class SortMenuBoxState extends DropDownBoxState<SortMenuBox> {
                     horizontal: kDefaultPadding * 0.8),
                 child: Center(
                   child: Text(
-                    'Sort by:',
+                    'Sắp xếp theo:',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).colorScheme.onPrimary),

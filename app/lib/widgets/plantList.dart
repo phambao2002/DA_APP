@@ -133,32 +133,6 @@ class MyPlants extends StatelessWidget {
     );
   }
 }
-// class MyPlants extends StatelessWidget {
-//   final List<PlantView> plantList;
-//   final Function(PlantView) onTap;
-
-//   const MyPlants({
-//     Key? key,
-//     required this.plantList,
-//     required this.onTap,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListView.builder(
-//       itemCount: plantList.length,
-//       itemBuilder: (context, index) {
-//         final plant = plantList[index];
-//         return ListTile(
-//           leading: Image.asset(plant.imageUrl, width: 50, height: 50),
-//           title: Text(plant.species),
-//           subtitle: Text(plant.condition),
-//           onTap: () => onTap(plant), // Gọi callback khi nhấn vào một mục
-//         );
-//       },
-//     );
-//   }
-// }
 
 class PlantTile extends StatelessWidget {
   const PlantTile(
@@ -249,9 +223,9 @@ class PlantTile extends StatelessWidget {
                   top: kDefaultPadding * 0.3,
                   child: MoreMenuBox(
                     options: [
-                      MoreItem(text: 'Rename'),
+                      MoreItem(text: 'Đôi tên'),
                       MoreItem(
-                        text: 'Delete',
+                        text: 'Xóa',
                         red: true,
                       ),
                     ],
@@ -274,17 +248,3 @@ class PlantTile extends StatelessWidget {
     );
   }
 }
-
-// class PlantView {
-//   final String imageUrl;
-//   final String species;
-//   final String condition;
-//   final DateTime date;
-
-//   const PlantView({
-//     required this.imageUrl,
-//     required this.species,
-//     required this.condition,
-//     required this.date,
-//   });
-// }

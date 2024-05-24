@@ -6,11 +6,14 @@ class PlantView {
   final String species;
   final String condition;
   final DateTime date;
-
-  const PlantView({
+  final String description; // Miêu tả của cây
+  final String treatment;
+  PlantView({
     required this.imageUrl,
     required this.species,
     required this.condition,
     required this.date,
+    required this.description,
+    required this.treatment,
   });
 }

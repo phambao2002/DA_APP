@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:app/config/constants.dart';
 
-import 'package:app/pages/plantPage.dart';
-import 'package:app/pages/plantPage.dart';
 import 'package:app/widgets/plant_view.dart';
 
 class PlantDetail extends StatelessWidget {
@@ -36,7 +34,7 @@ class PlantDetail extends StatelessWidget {
             ),
             SizedBox(height: kDefaultPadding),
             Text(
-              'Species: ${plant.species}',
+              'Giống loài: ${plant.species}',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -44,20 +42,20 @@ class PlantDetail extends StatelessWidget {
             ),
             SizedBox(height: kDefaultPadding / 2),
             Text(
-              'Condition: ${plant.condition}',
+              'Tình trạng: ${plant.condition}',
               style: TextStyle(
                 fontSize: 16,
-                color: plant.condition == 'Healthy' ? Colors.green : Colors.red,
+                color: plant.condition == 'Bị bệnh' ? Colors.green : Colors.red,
               ),
             ),
             SizedBox(height: kDefaultPadding / 2),
             Text(
-              'Date: ${_format.format(plant.date)}',
+              'Ngày: ${_format.format(plant.date)}',
               style: TextStyle(fontSize: 14, color: Colors.grey),
             ),
             SizedBox(height: kDefaultPadding),
             Text(
-              'Description:',
+              'Sự miêu tả:',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -65,7 +63,22 @@ class PlantDetail extends StatelessWidget {
             ),
             SizedBox(height: kDefaultPadding / 2),
             Text(
-              'Details about the plant condition and care instructions will be displayed here.',
+              // Hiển thị miêu tả của cây từ trường description
+              plant.description,
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: kDefaultPadding),
+            Text(
+              'Cách chữa trị:',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: kDefaultPadding / 2),
+            Text(
+              // Hiển thị thông tin về cách chữa trị từ trường treatment
+              plant.treatment,
               style: TextStyle(fontSize: 16),
             ),
           ],
@@ -74,19 +87,3 @@ class PlantDetail extends StatelessWidget {
     );
   }
 }
-
-
-
-// class PlantView {
-//   final String imageUrl;
-//   final String species;
-//   final String condition;
-//   final DateTime date;
-
-//   const PlantView({
-//     required this.imageUrl,
-//     required this.species,
-//     required this.condition,
-//     required this.date,
-//   });
-// }
