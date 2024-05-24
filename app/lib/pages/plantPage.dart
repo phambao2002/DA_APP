@@ -68,8 +68,8 @@ class _PlantPageState extends State<PlantPage>
         date: DateTime(2024, 5, 20),
         description:
             'Bệnh sẹo là một trong các bệnh thường gặp ở cây cam thường phát triển trong  giai đoạn có lá, cành, quả còn non. ', // Thêm dấu phẩy ở cuối dòng này
-        treatment: '''
-        Biện pháp phòng, trừ bệnh ghẻ là bạn cần thiết kế hệ thống thoát nước tốt, không lựa chọn các giống cây chứa mầm bệnh. ''', // Thêm phần thông tin về cách chữa trị
+        treatment:
+            '''Trừ bệnh ghẻ là bạn cần thiết kế hệ thống thoát nước tốt, không lựa chọn các giống cây chứa mầm bệnh. ''', // Thêm phần thông tin về cách chữa trị
       ),
       PlantView(
         imageUrl: 'assets/images/anh4.jpg',
