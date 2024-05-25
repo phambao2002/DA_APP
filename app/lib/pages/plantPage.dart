@@ -69,7 +69,7 @@ class _PlantPageState extends State<PlantPage>
         description:
             'Bệnh sẹo là một trong các bệnh thường gặp ở cây cam thường phát triển trong  giai đoạn có lá, cành, quả còn non. ', // Thêm dấu phẩy ở cuối dòng này
         treatment:
-            '''Trừ bệnh ghẻ là bạn cần thiết kế hệ thống thoát nước tốt, không lựa chọn các giống cây chứa mầm bệnh. ''', // Thêm phần thông tin về cách chữa trị
+            '''Trừ bệnh ghẻ là bạn cần thiết kế hệ thống thoát nước tốt, không lựa chọn các giống cây chứa mầm bệnh..Trừ bệnh ghẻ là bạn cần thiết kế hệ thống thoát nước tốt, không lựa chọn các giống cây chứa mầm bệnh...Trừ bệnh ghẻ là bạn cần thiết kế hệ thống thoát nước tốt, không lựa chọn các giống cây chứa mầm bệnh.... Trừ bệnh ghẻ là bạn cần thiết kế hệ thống thoát nước tốt, không lựa chọn các giống cây chứa mầm bệnh ''', // Thêm phần thông tin về cách chữa trị
       ),
       PlantView(
         imageUrl: 'assets/images/anh4.jpg',
@@ -80,7 +80,7 @@ class _PlantPageState extends State<PlantPage>
             '''Cây sầu siêng (tên khoa học: Dracaena fragrans) là một loại cây cảnh phổ biến được trồng trong nhà hoặc ngoài trời. ''', // Thêm dấu phẩy ở cuối dòng này
 
         treatment:
-            '''Để chữa trị tình trạng lá cây sầu siêng bị cháy, bạn có thể thực hiện các biện pháp sau:''',
+            '''Để chữa trị tình trạng lá cây sầu siêng bị cháy, bạn có thể thực hiện các biện pháp sau:..Để chữa trị tình trạng lá cây sầu siêng bị cháy, bạn có thể thực hiện các biện pháp sau:...Để chữa trị tình trạng lá cây sầu siêng bị cháy, bạn có thể thực hiện các biện pháp sau:...Để chữa trị tình trạng lá cây sầu siêng bị cháy, bạn có thể thực hiện các biện pháp sau:''',
       ),
       PlantView(
         imageUrl: 'assets/images/anh5.jpg',
@@ -249,78 +249,87 @@ class _PlantPageState extends State<PlantPage>
                   ),
                 ),
                 // History Tab
-                Column(
-                  children: [
-                    Container(
-                      height: 34,
-                      margin: const EdgeInsets.symmetric(
-                          vertical: kDefaultPadding / 2),
-                      child: ClipRRect(
-                        borderRadius:
-                            BorderRadius.circular(kDefaultBorderRaduis),
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: [
-                            ButtonWidget(
-                              text: const Text('Cây sầu riêng',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 6, 6, 6))),
-                              onPressed: () {},
-                            ),
-                            const SizedBox(width: 10),
-                            ButtonWidget(
-                              text: const Text('Bắp cải',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 4, 4, 4))),
-                              onPressed: () {},
-                              color: Theme.of(context).colorScheme.secondary,
-                            ),
-                            const SizedBox(width: 10),
-                            ButtonWidget(
-                              text: const Text('Cây bơ',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 7, 7, 7))),
-                              onPressed: () {},
-                              color: Theme.of(context).colorScheme.secondary,
-                            ),
-                            const SizedBox(width: 10),
-                            DividerWidget(),
-                            ButtonWidget(
-                              text: Text('Xóa tất cả',
-                                  style: TextStyle(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary)),
-                              color: Theme.of(context).colorScheme.error,
-                              onPressed: () {
-                                showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return DeleteDialog(
-                                      onPressed: () {
-                                        setState(() {
-                                          _plantList.clear();
-                                          _filteredPlantList.clear();
-                                        });
-                                      },
-                                      title: 'Bạn có muốn xóa tất cả lịch sử',
-                                    );
-                                  },
-                                );
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
+                // Column(
+                //   children: [
+                //     Container(
+                //       height: 34,
+                //       margin: const EdgeInsets.symmetric(
+                //           vertical: kDefaultPadding / 2),
+                //       child: ClipRRect(
+                //         borderRadius:
+                //             BorderRadius.circular(kDefaultBorderRaduis),
+                //         child: ListView(
+                //           scrollDirection: Axis.horizontal,
+                //           children: [
+                //             ButtonWidget(
+                //               text: const Text('Cây sầu riêng',
+                //                   style: TextStyle(
+                //                       color: Color.fromARGB(255, 6, 6, 6))),
+                //               onPressed: () {},
+                //             ),
+                //             const SizedBox(width: 10),
+                //             ButtonWidget(
+                //               text: const Text('Bắp cải',
+                //                   style: TextStyle(
+                //                       color: Color.fromARGB(255, 4, 4, 4))),
+                //               onPressed: () {},
+                //               color: Theme.of(context).colorScheme.secondary,
+                //             ),
+                //             const SizedBox(width: 10),
+                //             ButtonWidget(
+                //               text: const Text('Cây bơ',
+                //                   style: TextStyle(
+                //                       color: Color.fromARGB(255, 7, 7, 7))),
+                //               onPressed: () {},
+                //               color: Theme.of(context).colorScheme.secondary,
+                //             ),
+                //             const SizedBox(width: 10),
+                //             DividerWidget(),
+                //             ButtonWidget(
+                //               text: Text('Xóa tất cả',
+                //                   style: TextStyle(
+                //                       color: Theme.of(context)
+                //                           .colorScheme
+                //                           .onPrimary)),
+                //               color: Theme.of(context).colorScheme.error,
+                //               onPressed: () {
+                //                 showDialog(
+                //                   context: context,
+                //                   builder: (BuildContext context) {
+                //                     return DeleteDialog(
+                //                       onPressed: () {
+                //                         setState(() {
+                //                           _plantList.clear();
+                //                           _filteredPlantList.clear();
+                //                         });
+                //                       },
+                //                       title: 'Bạn có muốn xóa tất cả lịch sử',
+                //                     );
+                //                   },
+                //                 );
+                //               },
+                //             ),
+                //           ],
+                //         ),
+                //       ),
+                //     ),
+                //     Expanded(
+                //       child: ClipRRect(
+                //         borderRadius:
+                //             BorderRadius.circular(kDefaultBorderRaduis),
+                //         child: HistoryPlants(plantList: _filteredPlantList),
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                // History Tab
+                Container(
+                  child: Center(
+                    child: Text(
+                      'Không có lịch sử',
+                      style: TextStyle(fontSize: 18),
                     ),
-                    Expanded(
-                      child: ClipRRect(
-                        borderRadius:
-                            BorderRadius.circular(kDefaultBorderRaduis),
-                        child: HistoryPlants(plantList: _filteredPlantList),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ],
             ),
