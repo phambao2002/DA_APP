@@ -17,73 +17,6 @@ class PlantDetail extends StatelessWidget {
       appBar: AppBar(
         title: Text(plant.species),
       ),
-      // body: Padding(
-      //   padding: const EdgeInsets.all(kDefaultPadding),
-      //   child: Column(
-      //     crossAxisAlignment: CrossAxisAlignment.start,
-      //     children: [
-      //       Container(
-      //         height: 200,
-      //         decoration: BoxDecoration(
-      //           borderRadius: BorderRadius.circular(kDefaultBorderRaduis),
-      //           image: DecorationImage(
-      //             fit: BoxFit.cover,
-      //             image: AssetImage(plant.imageUrl),
-      //           ),
-      //         ),
-      //       ),
-      //       SizedBox(height: kDefaultPadding),
-      //       Text(
-      //         'Giống loài: ${plant.species}',
-      //         style: TextStyle(
-      //           fontSize: 24,
-      //           fontWeight: FontWeight.bold,
-      //         ),
-      //       ),
-      //       SizedBox(height: kDefaultPadding / 2),
-      //       Text(
-      //         'Tình trạng: ${plant.condition}',
-      //         style: TextStyle(
-      //           fontSize: 16,
-      //           color: plant.condition == 'Bị bệnh' ? Colors.green : Colors.red,
-      //         ),
-      //       ),
-      //       SizedBox(height: kDefaultPadding / 2),
-      //       Text(
-      //         'Ngày: ${_format.format(plant.date)}',
-      //         style: TextStyle(fontSize: 14, color: Colors.grey),
-      //       ),
-      //       SizedBox(height: kDefaultPadding),
-      //       Text(
-      //         'Sự miêu tả:',
-      //         style: TextStyle(
-      //           fontSize: 18,
-      //           fontWeight: FontWeight.bold,
-      //         ),
-      //       ),
-      //       SizedBox(height: kDefaultPadding / 2),
-      //       Text(
-      //         // Hiển thị miêu tả của cây từ trường description
-      //         plant.description,
-      //         style: TextStyle(fontSize: 16),
-      //       ),
-      //       SizedBox(height: kDefaultPadding),
-      //       Text(
-      //         'Cách chữa trị:',
-      //         style: TextStyle(
-      //           fontSize: 18,
-      //           fontWeight: FontWeight.bold,
-      //         ),
-      //       ),
-      //       SizedBox(height: kDefaultPadding / 2),
-      //       Text(
-      //         // Hiển thị thông tin về cách chữa trị từ trường treatment
-      //         plant.treatment,
-      //         style: TextStyle(fontSize: 16),
-      //       ),
-      //     ],
-      //   ),
-      // ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -92,22 +25,22 @@ class PlantDetail extends StatelessWidget {
             Image.asset(plant.imageUrl),
             SizedBox(height: 16),
             Text(
-              'Species: ${plant.species}',
+              'Giống loài: ${plant.species}',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
             Text(
-              'Condition: ${plant.condition}',
+              'Tình trạng: ${plant.condition}',
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 8),
             Text(
-              'Date: ${plant.date}',
+              'Ngày cập nhật: ${plant.date}',
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 16),
             Text(
-              'Description',
+              'Miêu tả cây',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
@@ -117,7 +50,7 @@ class PlantDetail extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'Treatment',
+              'Cách chữa trị ',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
