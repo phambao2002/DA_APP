@@ -18,6 +18,27 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
+
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Lỗi'),
+          content: Text(message),
+          actions: [
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,11 +46,12 @@ class _SignInScreenState extends State<SignInScreen> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-          hexStringToColor("CB2B93"),
-          hexStringToColor("9546C4"),
-          hexStringToColor("5E61F4")
-        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+          gradient: LinearGradient(colors: [
+            hexStringToColor("CB2B93"),
+            hexStringToColor("9546C4"),
+            hexStringToColor("5E61F4")
+          ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+        ),
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.fromLTRB(
@@ -37,19 +59,13 @@ class _SignInScreenState extends State<SignInScreen> {
             child: Column(
               children: <Widget>[
                 logoWidget("assets/images/logo4.png"),
-                const SizedBox(
-                  height: 30,
-                ),
+                const SizedBox(height: 30),
                 reusableTextField("Enter UserName", Icons.person_outline, false,
                     _emailTextController),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 reusableTextField("Enter Password", Icons.lock_outline, true,
                     _passwordTextController),
-                const SizedBox(
-                  height: 5,
-                ),
+                const SizedBox(height: 5),
                 forgetPassword(context),
                 firebaseUIButton(context, "Sign In", () {
                   FirebaseAuth.instance
@@ -60,10 +76,11 @@ class _SignInScreenState extends State<SignInScreen> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => HomePage()));
                   }).onError((error, stackTrace) {
+                    _showErrorDialog("Email hoặc mật khẩu không chính xác");
                     print("Error ${error.toString()}");
                   });
                 }),
-                signUpOption()
+                signUpOption(),
               ],
             ),
           ),
@@ -76,7 +93,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Don't have account?",
+        const Text("Don't have an account?",
             style: TextStyle(color: Colors.white70)),
         GestureDetector(
           onTap: () {
@@ -87,7 +104,7 @@ class _SignInScreenState extends State<SignInScreen> {
             " Sign Up",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
-        )
+        ),
       ],
     );
   }

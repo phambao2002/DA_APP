@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:app/pages/SignInPages.dart';
 import 'package:app/pages/profilePages.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,6 +8,7 @@ import 'package:app/config/constants.dart';
 import 'package:app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:app/config/themes/theme.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({Key? key}) : super(key: key);
@@ -16,15 +18,15 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
-  User? _user; // Khai báo biến _user
+  User? _user;
+  File? _imageFile;
 
   @override
   void initState() {
     super.initState();
-    // Lắng nghe sự thay đổi trạng thái xác thực
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       setState(() {
-        _user = user; // Gán thông tin người dùng từ Firebase cho _user
+        _user = user;
       });
     });
   }
@@ -57,8 +59,8 @@ class _AccountPageState extends State<AccountPage> {
         color: Theme.of(context).colorScheme.background,
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // Display the image to the left of the text
           Container(
             height: 80,
             width: 80,
@@ -70,14 +72,15 @@ class _AccountPageState extends State<AccountPage> {
               ),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(_user?.photoURL ??
-                    ''), // Sử dụng thông tin người dùng từ Firebase
+                image: _user?.photoURL != null
+                    ? NetworkImage(_user!.photoURL!)
+                    : AssetImage('assets/images/logo1.jpg')
+                        as ImageProvider<Object>,
               ),
             ),
           ),
           SizedBox(
-            width: kDefaultPadding * 0.75,
-          ),
+              width: kDefaultPadding / 2), // Add spacing between image and text
           Expanded(
             child: Container(
               height: 80,
@@ -88,41 +91,30 @@ class _AccountPageState extends State<AccountPage> {
                   Text(
                     'Welcome',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 15,
                       color: Theme.of(context).secondaryHeaderColor,
                     ),
                   ),
                   Text(
-                    _user?.displayName ??
-                        'Unknown', // Sử dụng thông tin người dùng từ Firebase
+                    _user?.email ?? 'Unknown',
                     style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
                     ),
                   ),
                 ],
               ),
             ),
           ),
-          Container(
-            child: Material(
-              color: Colors.transparent,
-              child: InkWell(
-                borderRadius: BorderRadius.circular(kDefaultBorderRaduis),
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SignInScreen()),
-                  );
-                },
-                child: Container(
-                  padding: EdgeInsets.all(kDefaultPadding * 0.5),
-                  child: Icon(Icons.logout),
-                ),
-              ),
-            ),
-          )
+          // Logout button
+          IconButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => SignInScreen()),
+              );
+            },
+            icon: Icon(Icons.logout),
+          ),
         ],
       ),
     );
@@ -131,55 +123,59 @@ class _AccountPageState extends State<AccountPage> {
   Container profileMenuItems(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(kDefaultBorderRaduis),
-          color: Theme.of(context).colorScheme.background,
-        ),
-        child: Column(
-          children: [
-            MenuItem(
-              prefix: Iconsax.profile_circle4,
-              text: 'Hồ sơ ',
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProfilePage(),
-                  ),
-                );
-              },
-            ),
-            MenuItemCategory(
-              subitems: [
-                SubMenuItem(
-                  icon: Iconsax.sun_1,
-                  text: 'Chế độ sáng / Chế độ tối',
-                  endWidget: ToggleThemeSwitcher(
-                      value: themeProvider.isDarkMode,
-                      onChanged: (value) {
-                        setState(() {
-                          final provider = Provider.of<ThemeProvider>(context,
-                              listen: false);
-                          provider.toggleTheme(value);
-                        });
-                      }),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(kDefaultBorderRaduis),
+        color: Theme.of(context).colorScheme.background,
+      ),
+      child: Column(
+        children: [
+          MenuItem(
+            prefix: Iconsax.profile_circle4,
+            text: 'Hồ sơ ',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProfilePage(),
                 ),
-                SubMenuItem(
-                  icon: Iconsax.language_circle,
-                  text: 'Ngôn ngữ',
-                  endWidget: Container(
-                    child: Text('Vietnam',
-                        style: TextStyle(
-                          color: Theme.of(context).secondaryHeaderColor,
-                          fontSize: 16,
-                        )),
+              );
+            },
+          ),
+          MenuItemCategory(
+            subitems: [
+              SubMenuItem(
+                icon: Iconsax.sun_1,
+                text: 'Chế độ sáng / Chế độ tối',
+                endWidget: ToggleThemeSwitcher(
+                  value: themeProvider.isDarkMode,
+                  onChanged: (value) {
+                    setState(() {
+                      final provider =
+                          Provider.of<ThemeProvider>(context, listen: false);
+                      provider.toggleTheme(value);
+                    });
+                  },
+                ),
+              ),
+              SubMenuItem(
+                icon: Iconsax.language_circle,
+                text: 'Ngôn ngữ',
+                endWidget: Container(
+                  child: Text(
+                    'Vietnam',
+                    style: TextStyle(
+                      color: Theme.of(context).secondaryHeaderColor,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
-              ],
-              prefix: Iconsax.setting_2,
-              text: 'Cài đặt chung',
-            )
-          ],
-        ));
+              ),
+            ],
+            prefix: Iconsax.setting_2,
+            text: 'Cài đặt chung',
+          )
+        ],
+      ),
+    );
   }
 }

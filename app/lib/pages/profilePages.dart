@@ -43,13 +43,7 @@ class _ProfilePageState extends State<ProfilePage> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) =>
-                    AccountPage(), // Điều hướng đến trang AccountPage
-              ),
-            );
+            Navigator.pop(context);
           },
         ),
       ),
@@ -64,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ? FileImage(_imageFile!)
                         : (_user!.photoURL != null
                             ? NetworkImage(_user!.photoURL!)
-                            : AssetImage('assets/default_avatar.jpg')
+                            : AssetImage('assets/images/logo1.jpg')
                                 as ImageProvider<Object>?),
                   ),
                   SizedBox(height: 20),
