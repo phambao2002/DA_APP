@@ -95,7 +95,42 @@ class _PlantPageState extends State<PlantPage>
   - Để giữ cho cây sầu siêng khỏe mạnh và tránh sự cháy lá, bạn cần đảm bảo cung cấp đủ ánh sáng, nước và độ ẩm phù hợp, đồng thời đặt cây ở một vị trí có không gian đủ để phát triển. Đảm bảo rằng đất cây có đủ thoát nước và đặt cây ra khỏi ánh nắng mặt trời trực tiếp trong những giờ nắng gắt.''', // Thêm dấu phẩy ở cuối dòng này
 
         treatment:
-            '''Để chữa trị tình trạng lá cây sầu siêng bị cháy, bạn có thể thực hiện các biện pháp sau:''',
+            '''Cây sầu riêng bị cháy lá có thể do nhiều nguyên nhân như bệnh do nấm, vi khuẩn, côn trùng gây hại, hoặc điều kiện môi trường không thuận lợi. Dưới đây là các biện pháp chữa trị và phòng ngừa khi cây sầu riêng bị cháy lá:
+
+1. Nguyên nhân và cách chữa trị cháy lá do bệnh
+Bệnh cháy lá do nấm
+Triệu chứng: Lá xuất hiện các vết cháy, thường bắt đầu từ mép lá và lan rộng vào bên trong, lá có thể khô và rụng.
+Nguyên nhân: Do nấm Phytophthora, Pythium hoặc Colletotrichum.
+Cách chữa trị:
+Phun thuốc trừ nấm: Sử dụng các loại thuốc như Mancozeb, Copper oxychloride, hoặc Metalaxyl. Phun theo hướng dẫn của nhà sản xuất.
+Cắt tỉa lá bị bệnh: Ngắt bỏ và tiêu hủy các lá bị bệnh để tránh lây lan.
+Bệnh cháy lá do vi khuẩn
+Triệu chứng: Lá có các vết cháy, nước, hoặc các vết ướt mờ, sau đó khô và cháy.
+Nguyên nhân: Do vi khuẩn Xanthomonas hoặc Pseudomonas.
+Cách chữa trị:
+Phun thuốc trừ khuẩn: Sử dụng các loại thuốc chứa Copper hydroxide hoặc Streptomycin theo hướng dẫn của nhà sản xuất.
+Cắt tỉa và tiêu hủy lá bị bệnh: Đảm bảo cây luôn được thông thoáng.
+2. Nguyên nhân và cách chữa trị cháy lá do côn trùng
+Triệu chứng: Lá bị cháy do côn trùng chích hút, gây ra các vết đốm cháy và mất màu.
+Cách chữa trị:
+Phun thuốc trừ sâu: Sử dụng các loại thuốc trừ sâu như Imidacloprid, Abamectin hoặc Permethrin theo hướng dẫn của nhà sản xuất.
+Kiểm tra và loại bỏ côn trùng: Thường xuyên kiểm tra cây và loại bỏ các côn trùng gây hại.
+3. Điều kiện môi trường và cách phòng ngừa
+Tưới nước và độ ẩm
+Tưới nước đúng cách: Tránh tưới quá nhiều nước gây ngập úng hoặc quá ít nước làm cây khô hạn. Tưới vào buổi sáng sớm để lá cây khô nhanh, giảm nguy cơ nhiễm bệnh.
+Đảm bảo thoát nước tốt: Đảm bảo đất thoát nước tốt để tránh tình trạng ngập úng.
+Ánh sáng và gió
+Đảm bảo ánh sáng đầy đủ: Cây sầu riêng cần đủ ánh sáng mặt trời, nhưng tránh ánh nắng gắt trực tiếp trong thời gian dài.
+Tạo điều kiện thoáng gió: Trồng cây ở nơi có gió lưu thông tốt để giảm độ ẩm xung quanh cây.
+4. Chăm sóc và bón phân
+Bón phân hợp lý
+Cân đối dinh dưỡng: Bón phân cân đối giữa đạm, lân, kali và các vi lượng khác để cây phát triển khỏe mạnh.
+Sử dụng phân hữu cơ: Bón phân hữu cơ để cải thiện đất và tăng cường sức đề kháng cho cây.
+Cắt tỉa cây
+Cắt tỉa hợp lý: Loại bỏ các cành lá bị nhiễm bệnh và cắt tỉa để cây thông thoáng, giảm nguy cơ bị bệnh.
+5. Sử dụng giống kháng bệnh
+Chọn giống khỏe mạnh: Sử dụng các giống sầu riêng có khả năng kháng bệnh tốt.
+Việc kết hợp các biện pháp trên sẽ giúp kiểm soát và phòng ngừa hiệu quả hiện tượng cháy lá trên cây sầu riêng. Nếu tình trạng cháy lá vẫn diễn ra phức tạp và khó kiểm soát, nên tìm đến sự tư vấn của chuyên gia nông nghiệp để có giải pháp cụ thể và hiệu quả.''',
       ),
       PlantView(
         imageUrl: 'assets/images/anh5.jpg',
@@ -113,7 +148,41 @@ class _PlantPageState extends State<PlantPage>
   - Cây bưởi vàng không chỉ được trồng để thu hoạch trái ngon, mà cả lá của nó cũng có giá trị thẩm mỹ và sử dụng trong các ứng dụng khác nhau, như nấu ăn, làm gia vị, hay trong y học dân gian.''', // Thêm dấu phẩy ở cuối dòng này
 
         treatment:
-            '''Để chữa trị tình trạng lá cây bưởi vàng bị bệnh hoặc ảnh hưởng bởi các vấn đề khác,''',
+            '''Cây bưởi vàng (Citrus paradisi) có thể gặp nhiều loại bệnh và côn trùng gây hại. Dưới đây là một số bệnh phổ biến và cách trị:
+
+1. Bệnh vàng lá gân xanh (Greening)
+Triệu chứng: Lá bưởi vàng không đều, gân lá vẫn xanh, quả nhỏ, biến dạng và dễ rụng.
+Nguyên nhân: Do vi khuẩn Liberibacter asiaticus lây truyền qua côn trùng chích hút (rầy chổng cánh).
+Cách trị:
+Phòng ngừa: Sử dụng giống cây sạch bệnh, trồng cây ở nơi thoáng mát, không quá ẩm ướt.
+Kiểm soát rầy chổng cánh: Phun thuốc bảo vệ thực vật như Imidacloprid, Thiamethoxam theo hướng dẫn của nhà sản xuất.
+Tiêu hủy cây bệnh: Nếu cây bị nhiễm bệnh nặng, cần tiêu hủy cây để tránh lây lan.
+2. Bệnh thán thư (Anthracnose)
+Triệu chứng: Lá, cành, và quả bưởi xuất hiện các đốm nâu đen, lan rộng và làm thối quả.
+Nguyên nhân: Do nấm Colletotrichum gloeosporioides.
+Cách trị:
+Ngắt bỏ phần bị bệnh: Cắt tỉa và tiêu hủy các cành, lá và quả bị bệnh.
+Phun thuốc trừ nấm: Sử dụng thuốc chứa hoạt chất Mancozeb hoặc Chlorothalonil.
+3. Bệnh nứt thân chảy nhựa (Gummosis)
+Triệu chứng: Thân và cành cây bị nứt, chảy nhựa, lá vàng và rụng.
+Nguyên nhân: Do nấm Phytophthora spp.
+Cách trị:
+Cắt bỏ phần bị bệnh: Cắt bỏ phần thân, cành bị nứt và chảy nhựa, bôi thuốc bảo vệ thực vật chứa Copper oxychloride lên vết cắt.
+Phun thuốc trừ nấm: Sử dụng thuốc Metalaxyl hoặc Fosetyl-Al để phun cho cây theo hướng dẫn.
+4. Sâu bệnh hại
+Rệp sáp: Rệp sáp bám vào cành, lá và quả, hút nhựa và gây hại cho cây.
+Cách trị: Phun thuốc trừ sâu như Imidacloprid hoặc Buprofezin.
+Sâu đục thân: Sâu đục vào thân cây, gây hại nghiêm trọng.
+Cách trị: Tiêm thuốc trừ sâu trực tiếp vào lỗ đục, sử dụng thuốc Cypermethrin.
+5. Cải thiện điều kiện môi trường
+Đảm bảo thông thoáng: Trồng cây với khoảng cách hợp lý để cây có đủ không gian phát triển.
+Tưới nước đúng cách: Tránh tưới nước quá nhiều, duy trì độ ẩm vừa phải cho cây.
+6. Bón phân hợp lý
+Cân đối dinh dưỡng: Bón phân cân đối giữa đạm, lân, kali và các vi lượng khác để cây phát triển khỏe mạnh.
+Phân hữu cơ: Sử dụng phân hữu cơ để cải thiện đất và tăng cường sức đề kháng cho cây.
+7. Sử dụng giống kháng bệnh
+Chọn giống khỏe mạnh: Sử dụng các giống bưởi có khả năng kháng bệnh tốt.
+Việc kết hợp các biện pháp trên sẽ giúp kiểm soát và phòng ngừa hiệu quả các bệnh hại trên cây bưởi vàng. Nếu bệnh tình diễn biến phức tạp và khó kiểm soát, nên tìm đến sự tư vấn của chuyên gia nông nghiệp để có giải pháp cụ thể.''',
       ),
       PlantView(
         imageUrl: 'assets/images/anh6.jpg',
@@ -133,7 +202,39 @@ class _PlantPageState extends State<PlantPage>
   - Quản lý vườn: Thực hiện các biện pháp quản lý vườn như quản lý cánh rừng, kiểm soát côn trùng, và làm sạch các vật liệu thừa để giảm thiểu điều kiện thuận lợi cho sự phát triển của nấm.''', // Thêm dấu phẩy ở cuối dòng này
 
         treatment:
-            '''Để chữa trị bệnh nấm trên cây bắp cải, có một số biện pháp bạn có thể thực hiện:''',
+            '''Khi cải bị nhiễm nấm, bạn có thể áp dụng các biện pháp sau để chữa trị và kiểm soát bệnh:
+
+1. Ngắt bỏ lá bị bệnh:
+Ngay khi phát hiện lá cải bị nhiễm nấm, ngắt bỏ và tiêu hủy những lá này để ngăn ngừa lây lan sang các cây khác.
+2. Sử dụng thuốc bảo vệ thực vật:
+Thuốc hóa học:
+Sử dụng các loại thuốc diệt nấm phổ biến như Mancozeb, Chlorothalonil, Copper hydroxide, hay Propiconazole. Phun thuốc theo hướng dẫn của nhà sản xuất về liều lượng và cách sử dụng.
+Thuốc sinh học:
+Sử dụng các chế phẩm sinh học như Trichoderma hoặc Bacillus subtilis để kiểm soát nấm gây bệnh.
+3. Phun thuốc sinh học:
+Các chế phẩm sinh học như nấm đối kháng Trichoderma có thể được sử dụng để kiểm soát các loại nấm gây bệnh trên cải.
+4. Cải thiện điều kiện môi trường:
+Đảm bảo thông thoáng:
+Trồng cây cải với mật độ hợp lý để cây có đủ không gian phát triển và giảm độ ẩm xung quanh cây.
+Tưới nước đúng cách:
+Tưới nước vào buổi sáng sớm để lá cây khô nhanh hơn trong ngày, giảm thiểu điều kiện ẩm ướt thuận lợi cho nấm phát triển.
+5. Luân canh cây trồng:
+Luân canh cây trồng:
+Tránh trồng liên tiếp các cây cùng họ Cải trên một mảnh đất để giảm sự tích tụ của nấm trong đất.
+Trồng cây xen canh:
+Trồng xen các loại cây không phải họ Cải để giảm nguy cơ lây lan bệnh nấm.
+6. Bón phân hợp lý:
+Cân đối dinh dưỡng:
+Bón phân cân đối giữa các loại phân đạm, lân, và kali để cây phát triển khỏe mạnh, tăng sức đề kháng chống lại bệnh tật.
+Tránh bón quá nhiều đạm:
+Bón quá nhiều đạm có thể làm cây mềm yếu và dễ bị nấm tấn công.
+7. Sử dụng giống kháng bệnh:
+Chọn giống kháng bệnh:
+Chọn các giống cải có khả năng kháng bệnh nấm cao, nếu có sẵn.
+8. Kiểm tra và theo dõi thường xuyên:
+Giám sát cây trồng:
+Thường xuyên kiểm tra tình trạng cây trồng để phát hiện sớm các dấu hiệu bệnh và có biện pháp xử lý kịp thời.
+Bằng cách kết hợp các biện pháp trên, bạn có thể kiểm soát và phòng ngừa hiệu quả bệnh nấm trên cây cải. Nếu bệnh nấm phát triển nặng và khó kiểm soát, nên tìm đến sự tư vấn của chuyên gia nông nghiệp để có giải pháp tối ưu.''',
       ),
       PlantView(
         imageUrl: 'assets/images/anh7.jpg',
@@ -155,7 +256,26 @@ class _PlantPageState extends State<PlantPage>
   - Quản lý vườn: Thực hiện các biện pháp quản lý vườn như kiểm soát côn trùng và cỏ dại để giảm sự lây lan của bệnh.''', // Thêm dấu phẩy ở cuối dòng này
 
         treatment:
-            '''Để chữa trị bệnh đốm trắng trên lá cải, bạn có thể thực hiện các biện pháp sau:''',
+            '''Bệnh đốm trắng trên cải (cải thảo, cải ngọt, cải bẹ xanh,...) là do nấm hoặc vi khuẩn gây ra. Để chữa trị bệnh này, bạn có thể áp dụng các biện pháp sau:
+
+- Ngắt bỏ lá bị bệnh:
+Ngay khi phát hiện lá có đốm trắng, bạn nên ngắt bỏ và tiêu hủy những lá này để tránh lây lan.
+- Sử dụng thuốc bảo vệ thực vật:
+Sử dụng các loại thuốc bảo vệ thực vật chứa các hoạt chất như Mancozeb, Chlorothalonil, Copper hydroxide, hay các loại thuốc có nguồn gốc sinh học để kiểm soát nấm và vi khuẩn.
+Tuân theo hướng dẫn của nhà sản xuất về liều lượng và cách phun thuốc để đạt hiệu quả cao nhất và đảm bảo an toàn.
+- Phun thuốc sinh học:
+Sử dụng các chế phẩm sinh học như Trichoderma hoặc Bacillus subtilis để kiểm soát nấm và vi khuẩn gây bệnh.
+- Cải thiện điều kiện môi trường:
+Đảm bảo cây trồng được thông thoáng, không trồng quá dày.
+Tưới nước vào buổi sáng sớm để lá cây có thể khô nhanh trong ngày.
+Giảm độ ẩm trong vườn, hạn chế tưới nước lên lá cây vào buổi chiều hoặc tối.
+- Luân canh cây trồng:
+Luân canh với các loại cây không thuộc họ Cải để giảm bớt mầm bệnh trong đất.
+- Bón phân hợp lý:
+Bón phân cân đối và hợp lý, tránh bón quá nhiều đạm vì có thể làm cây mềm yếu và dễ bị bệnh hơn.
+- Sử dụng giống kháng bệnh:
+Chọn giống cải có khả năng kháng bệnh đốm trắng nếu có sẵn.
+Bằng cách áp dụng các biện pháp trên, bạn có thể kiểm soát và phòng ngừa hiệu quả bệnh đốm trắng trên cây cải. Nếu bệnh phát triển nặng và khó kiểm soát, nên tìm đến sự tư vấn của chuyên gia nông nghiệp để có giải pháp tối ưu.''',
       ),
       PlantView(
         imageUrl: 'assets/images/anh8.jpg',
