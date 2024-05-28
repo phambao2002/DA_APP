@@ -27,8 +27,6 @@ class _HistoryPlantsState extends State<HistoryPlants> {
         return ClipRRect(
           borderRadius: BorderRadius.circular(kDefaultBorderRaduis),
           child: Dismissible(
-            background: removeWidget(),
-            secondaryBackground: addWidget(),
             key: ValueKey(plantCard),
             child: PlantTile(
               plantCard: plantCard,
@@ -60,44 +58,44 @@ class _HistoryPlantsState extends State<HistoryPlants> {
   }
 
   // Widget xóa cây
-  Widget removeWidget() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
-      alignment: Alignment.centerLeft,
-      child: Text(
-        'Remove',
-        style: TextStyle(
-          color: Theme.of(context).colorScheme.onError,
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(kDefaultBorderRaduis),
-        color: Theme.of(context).colorScheme.error,
-      ),
-    );
-  }
+  // Widget removeWidget() {
+  //   return Container(
+  //     padding: EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+  //     alignment: Alignment.centerLeft,
+  //     child: Text(
+  //       'Remove',
+  //       style: TextStyle(
+  //         color: Theme.of(context).colorScheme.onError,
+  //         fontSize: 32,
+  //         fontWeight: FontWeight.bold,
+  //       ),
+  //     ),
+  //     decoration: BoxDecoration(
+  //       borderRadius: BorderRadius.circular(kDefaultBorderRaduis),
+  //       color: Theme.of(context).colorScheme.error,
+  //     ),
+  //   );
+  // }
 
-  // Widget thêm cây
-  Widget addWidget() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
-      alignment: Alignment.centerRight,
-      child: Text(
-        'Add',
-        style: TextStyle(
-          color: Theme.of(context).colorScheme.onError,
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(kDefaultBorderRaduis),
-        color: Theme.of(context).colorScheme.primary,
-      ),
-    );
-  }
+  // // Widget thêm cây
+  // Widget addWidget() {
+  //   return Container(
+  //     padding: EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+  //     alignment: Alignment.centerRight,
+  //     child: Text(
+  //       'Add',
+  //       style: TextStyle(
+  //         color: Theme.of(context).colorScheme.onError,
+  //         fontSize: 32,
+  //         fontWeight: FontWeight.bold,
+  //       ),
+  //     ),
+  //     decoration: BoxDecoration(
+  //       borderRadius: BorderRadius.circular(kDefaultBorderRaduis),
+  //       color: Theme.of(context).colorScheme.primary,
+  //     ),
+  //   );
+  // }
 }
 
 class MyPlants extends StatelessWidget {
@@ -216,21 +214,6 @@ class PlantTile extends StatelessWidget {
               ),
             ],
           ),
-          this.packed
-              ? Center()
-              : Positioned(
-                  right: 0,
-                  top: kDefaultPadding * 0.3,
-                  child: MoreMenuBox(
-                    options: [
-                      MoreItem(text: 'Đôi tên'),
-                      MoreItem(
-                        text: 'Xóa',
-                        red: true,
-                      ),
-                    ],
-                  ),
-                ),
         ],
       ),
       decoration: BoxDecoration(
