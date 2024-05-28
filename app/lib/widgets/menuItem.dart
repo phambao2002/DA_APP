@@ -3,11 +3,13 @@ import 'package:app/config/constants.dart';
 import 'package:iconsax/iconsax.dart';
 
 class MenuItem extends StatelessWidget {
-  const MenuItem({Key? key, required this.prefix, required this.text})
+  const MenuItem(
+      {Key? key, required this.prefix, required this.text, required this.onTap})
       : super(key: key);
 
   final IconData prefix;
   final String text;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class MenuItem extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(kDefaultBorderRaduis),
-        onTap: () {},
+        onTap: onTap,
         child: Container(
           height: 74,
           padding: EdgeInsets.symmetric(

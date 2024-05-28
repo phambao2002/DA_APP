@@ -1,3 +1,6 @@
+import 'package:app/pages/SignInPages.dart';
+import 'package:app/pages/profilePages.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:app/config/constants.dart';
@@ -13,6 +16,19 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
+  User? _user; // Khai báo biến _user
+
+  @override
+  void initState() {
+    super.initState();
+    // Lắng nghe sự thay đổi trạng thái xác thực
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      setState(() {
+        _user = user; // Gán thông tin người dùng từ Firebase cho _user
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,7 +60,7 @@ class _AccountPageState extends State<AccountPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            height: 80, //140
+            height: 80,
             width: 80,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
@@ -54,7 +70,8 @@ class _AccountPageState extends State<AccountPage> {
               ),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/images/hoso.jpg'),
+                image: NetworkImage(_user?.photoURL ??
+                    ''), // Sử dụng thông tin người dùng từ Firebase
               ),
             ),
           ),
@@ -71,12 +88,18 @@ class _AccountPageState extends State<AccountPage> {
                   Text(
                     'Welcome',
                     style: TextStyle(
-                        fontSize: 12,
-                        color: Theme.of(context).secondaryHeaderColor),
+                      fontSize: 12,
+                      color: Theme.of(context).secondaryHeaderColor,
+                    ),
                   ),
-                  Text('Phạm Bảo',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold))
+                  Text(
+                    _user?.displayName ??
+                        'Unknown', // Sử dụng thông tin người dùng từ Firebase
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -86,10 +109,17 @@ class _AccountPageState extends State<AccountPage> {
               color: Colors.transparent,
               child: InkWell(
                 borderRadius: BorderRadius.circular(kDefaultBorderRaduis),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SignInScreen()),
+                  );
+                },
                 child: Container(
-                    padding: EdgeInsets.all(kDefaultPadding * 0.5),
-                    child: Icon(Icons.logout)),
+                  padding: EdgeInsets.all(kDefaultPadding * 0.5),
+                  child: Icon(Icons.logout),
+                ),
               ),
             ),
           )
@@ -110,6 +140,14 @@ class _AccountPageState extends State<AccountPage> {
             MenuItem(
               prefix: Iconsax.profile_circle4,
               text: 'Hồ sơ ',
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfilePage(),
+                  ),
+                );
+              },
             ),
             MenuItemCategory(
               subitems: [

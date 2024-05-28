@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:app/config/themes/theme.dart';
 import 'package:app/pages/homePage.dart';
@@ -9,11 +11,10 @@ import 'package:app/src/suggestions_page/suggestions.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await Hive.initFlutter();
   Hive.registerAdapter(DiseaseAdapter());
-
   await Hive.openBox<Disease>('plant_diseases');
-
   runApp(MyApp());
 }
 

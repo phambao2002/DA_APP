@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "417035115842",
+    "project_id": "project-doantotnghiep",
+    "storage_bucket": "project-doantotnghiep.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417035115842:android:0297c0d298f59a56e6bcdb",
+        "android_client_info": {
+          "package_name": "com.example.batbenhchocay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWCC5nnZz6f8OGGGec647PsgztTGEcaG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
