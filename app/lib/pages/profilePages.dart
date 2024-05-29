@@ -13,6 +13,11 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   User? _user;
   File? _imageFile;
+  final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _phoneController = TextEditingController();
+  bool _isEditing = false;
 
   @override
   void initState() {
@@ -20,6 +25,11 @@ class _ProfilePageState extends State<ProfilePage> {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       setState(() {
         _user = user;
+        if (_user != null) {
+          _nameController.text = _user!.displayName ?? '';
+          _emailController.text = _user!.email ?? '';
+          _phoneController.text = _user!.phoneNumber ?? '';
+        }
       });
     });
   }
@@ -35,6 +45,26 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
+  Future<void> _updateProfile() async {
+    if (_formKey.currentState!.validate()) {
+      try {
+        if (_user != null) {
+          await _user!.updateDisplayName(_nameController.text);
+          await _user!.updateEmail(_emailController.text);
+          // Update phone number using a backend API if needed
+        }
+        setState(() {
+          _isEditing = false;
+        });
+      } catch (e) {
+        print('Failed to update profile: $e');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to update profile: $e')),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,95 +76,130 @@ class _ProfilePageState extends State<ProfilePage> {
             Navigator.pop(context);
           },
         ),
+        actions: [
+          IconButton(
+            icon: Icon(_isEditing ? Icons.save : Icons.edit),
+            onPressed: () {
+              if (_isEditing) {
+                _updateProfile();
+              } else {
+                setState(() {
+                  _isEditing = true;
+                });
+              }
+            },
+          ),
+        ],
       ),
       body: Center(
         child: _user != null
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 70,
-                    backgroundImage: _imageFile != null
-                        ? FileImage(_imageFile!)
-                        : (_user!.photoURL != null
-                            ? NetworkImage(_user!.photoURL!)
-                            : AssetImage('assets/images/logo1.jpg')
-                                as ImageProvider<Object>?),
-                  ),
-                  SizedBox(height: 20),
-                  ElevatedButton.icon(
-                    onPressed: _uploadImage,
-                    icon: Icon(Icons.camera_alt),
-                    label: Text('Tải ảnh lên'),
-                  ),
-                  SizedBox(
-                      height: 60), // Khoảng cách giữa ảnh và các phần còn lại
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    elevation: 5,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
+            ? Form(
+                key: _formKey,
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 70,
+                        backgroundImage: _imageFile != null
+                            ? FileImage(_imageFile!)
+                            : (_user!.photoURL != null
+                                ? NetworkImage(_user!.photoURL!)
+                                : AssetImage('assets/images/logo1.jpg')
+                                    as ImageProvider<Object>?),
+                      ),
+                      SizedBox(height: 10),
+                      ElevatedButton.icon(
+                        onPressed: _uploadImage,
+                        icon: Icon(Icons.camera_alt),
+                        label: Text('Tải ảnh lên'),
+                      ),
+                      SizedBox(height: 40),
+                      Row(
                         children: [
                           Icon(Icons.person, color: Colors.blue),
                           SizedBox(width: 10),
-                          Text(
-                            'Name: ${_user!.displayName ?? 'Unknown'}',
+                          Expanded(
+                            child: TextFormField(
+                              controller: _nameController,
+                              decoration: InputDecoration(
+                                labelText: 'Name',
+                                border: OutlineInputBorder(),
+                              ),
+                              readOnly: !_isEditing,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter your name';
+                                }
+                                return null;
+                              },
+                            ),
                           ),
                         ],
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    elevation: 5,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
+                      SizedBox(height: 30),
+                      Row(
                         children: [
                           Icon(Icons.email, color: Colors.blue),
                           SizedBox(width: 10),
-                          Text('Email: ${_user!.email ?? 'Unknown'}'),
+                          Expanded(
+                            child: TextFormField(
+                              controller: _emailController,
+                              decoration: InputDecoration(
+                                labelText: 'Email',
+                                border: OutlineInputBorder(),
+                              ),
+                              readOnly: !_isEditing,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter your email';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
                         ],
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    elevation: 5,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
+                      SizedBox(height: 30),
+                      Row(
                         children: [
                           Icon(Icons.phone, color: Colors.blue),
                           SizedBox(width: 10),
-                          Text('Phone: ${_user!.phoneNumber ?? 'Unknown'}'),
+                          Expanded(
+                            child: TextFormField(
+                              controller: _phoneController,
+                              decoration: InputDecoration(
+                                labelText: 'Phone',
+                                border: OutlineInputBorder(),
+                              ),
+                              readOnly: !_isEditing,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter your phone number';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
                         ],
                       ),
-                    ),
+                      SizedBox(height: 100),
+                      ElevatedButton(
+                        onPressed: () async {
+                          await FirebaseAuth.instance.signOut();
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SignInScreen(),
+                            ),
+                          );
+                        },
+                        child: Text('Đăng xuất'),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 90),
-                  ElevatedButton(
-                    onPressed: () async {
-                      await FirebaseAuth.instance.signOut();
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SignInScreen(),
-                        ),
-                      );
-                    },
-                    child: Text('Đăng xuất'),
-                  ),
-                ],
+                ),
               )
             : CircularProgressIndicator(),
       ),
